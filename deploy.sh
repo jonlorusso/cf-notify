@@ -78,7 +78,7 @@ echo 'Lambda artifact moved'
 echo 'Creating stack'
 aws cloudformation create-stack \
     --template-body file://cf-notify.json \
-    --stack-name cf-notify \
+    --stack-name cf-notify-$CHANNEL \
     --capabilities CAPABILITY_IAM \
     --parameters ParameterKey=Bucket,ParameterValue=$BUCKET \
     --profile $PROFILE
@@ -89,3 +89,4 @@ then
 else
     echo 'Stack created'
 fi
+
